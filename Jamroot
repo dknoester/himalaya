@@ -1,0 +1,49 @@
+import os ;
+local HOME = [ os.environ HOME ] ;
+
+use-project /libea : ../ealib/libea ;
+
+exe himalaya-alps-bench :
+    src/alps_bench.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+exe himalaya-alps-nk :
+    src/alps_nk.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+exe himalaya-qhfc-bench :
+    src/qhfc_bench.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+exe himalaya-qhfc-nk :
+    src/qhfc_nk.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+exe himalaya-bench :
+    src/himalaya_bench.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+exe himalaya-nk :
+    src/himalaya_nk.cpp
+    /libea//libea
+    /libea//libea_runner
+    : <link>static ;
+
+install dist : 
+    himalaya-alps-bench
+    himalaya-alps-nk
+    himalaya-qhfc-bench
+    himalaya-qhfc-nk
+    himalaya-bench
+    himalaya-nk
+    : <location>$(HOME)/bin ;
