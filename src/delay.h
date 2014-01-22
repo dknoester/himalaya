@@ -25,6 +25,7 @@
 LIBEA_MD_DECL(DELAY_GENERATIONS, "delay.generations", int);
 LIBEA_MD_DECL(DELAY_W_REAL, "delay.w_real", double);
 LIBEA_MD_DECL(DELAY_W_EFF, "delay.w_eff", double);
+LIBEA_MD_DECL(DELAY_RANDOM_INSERT, "delay.random_insert", double);
 
 /*! Delay the fitness of an indivdual by up to DELAY_GENERATIONS number of
  ancestors along its lineage.
@@ -133,6 +134,20 @@ struct delayed_elitism {
     embedded_selection_type _embedded; //!< Underlying selection strategy.
 };
 
+
+/*! At the end of each update, insert random individuals into the population.
+ */
+template <typename EA>
+struct random_individuals : end_of_update_event<EA> {
+    random_individuals(EA& ea) : end_of_update_event<EA>(ea) {
+    }
+    
+    virtual void operator()(EA& ea) {
+        generate_ancestors(typename EA::ancestor_generator_type(), get<DELAY_RANDOM_INSERT>(ea)*get<POPULATION_SIZE>(ea), ea);
+    }
+};
+
+
 /*! Store the dominant individual (based on real fitness).
  */
 template <typename EA>
@@ -145,7 +160,7 @@ struct dominant_archive : fitness_evaluated_event<EA> {
     virtual void operator()(typename EA::individual_type& ind, EA& ea) {
         if(_archive.empty()
            || (get<DELAY_W_REAL>(ind) > get<DELAY_W_REAL>(*_archive.back()))) {
-            typename EA::individual_ptr_type p=ea.make_individual(ind);
+            typename EA::individual_ptr_type p=ea.copy_individual(ind);
             p->traits().lod_clear();
             _archive.push_back(p);
             _df.write(ea.current_update()).write(get<DELAY_W_REAL>(*p)).endl();

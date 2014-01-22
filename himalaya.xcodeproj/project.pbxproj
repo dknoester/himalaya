@@ -131,7 +131,7 @@
 		3EB67EE916F8803700111A41 /* alps_bench.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alps_bench.cpp; sourceTree = "<group>"; };
 		3EB67EF416F8821D00111A41 /* himalaya-alps-bench */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-alps-bench"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4220F36915D3510F005750F1 /* qhfc_bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = qhfc_bench.cpp; sourceTree = "<group>"; };
-		4220F37015D49FE8005750F1 /* hfc.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = hfc.cfg; sourceTree = "<group>"; };
+		4220F37015D49FE8005750F1 /* qhfc.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = qhfc.cfg; sourceTree = "<group>"; };
 		4234C419178C3E2A0078BD85 /* delay.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = delay.cfg; sourceTree = "<group>"; };
 		4234C42C178CEC890078BD85 /* himalaya-qhfc-nk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-qhfc-nk"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4234C436178CEC990078BD85 /* himalaya-alps-nk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-alps-nk"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +140,7 @@
 		4234C44E178CF0FB0078BD85 /* libea.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libea.a; path = ../DerivedData/research/Build/Products/Debug/libea.a; sourceTree = "<group>"; };
 		4259F68F17A2B56100132687 /* analysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analysis.h; sourceTree = "<group>"; };
 		426D350F14EFD1180051BB50 /* himalaya.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = himalaya.xcconfig; sourceTree = "<group>"; };
-		42752134187C82E9005C44E5 /* himalaya-delay */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "himalaya-delay"; path = "himalaya-delay-bench"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42752134187C82E9005C44E5 /* himalaya-delay-bench */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-delay-bench"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42752138187C8583005C44E5 /* delay_bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = delay_bench.cpp; sourceTree = "<group>"; };
 		42752145187C8606005C44E5 /* himalaya-delay-nk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-delay-nk"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42752146187C86A6005C44E5 /* delay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = delay.h; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			children = (
 				426D350F14EFD1180051BB50 /* himalaya.xcconfig */,
 				4234C419178C3E2A0078BD85 /* delay.cfg */,
-				4220F37015D49FE8005750F1 /* hfc.cfg */,
+				4220F37015D49FE8005750F1 /* qhfc.cfg */,
 				4292B4131625242E007F1B2C /* alps.cfg */,
 			);
 			path = etc;
@@ -253,7 +253,7 @@
 				3EB67EF416F8821D00111A41 /* himalaya-alps-bench */,
 				4234C42C178CEC890078BD85 /* himalaya-qhfc-nk */,
 				4234C436178CEC990078BD85 /* himalaya-alps-nk */,
-				42752134187C82E9005C44E5 /* himalaya-delay */,
+				42752134187C82E9005C44E5 /* himalaya-delay-bench */,
 				42752145187C8606005C44E5 /* himalaya-delay-nk */,
 			);
 			name = Products;
@@ -344,7 +344,7 @@
 			);
 			name = "himalaya-delay-bench";
 			productName = hfc;
-			productReference = 42752134187C82E9005C44E5 /* himalaya-delay */;
+			productReference = 42752134187C82E9005C44E5 /* himalaya-delay-bench */;
 			productType = "com.apple.product-type.tool";
 		};
 		4275213C187C8606005C44E5 /* himalaya-delay-nk */ = {

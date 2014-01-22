@@ -23,6 +23,7 @@
 #include <ea/generational_models/steady_state.h>
 #include <ea/generational_models/moran_process.h>
 #include <ea/selection/tournament.h>
+#include <ea/selection/proportionate.h>
 #include <ea/selection/elitism.h>
 #include <ea/selection/random.h>
 #include <ea/line_of_descent.h>
@@ -40,7 +41,7 @@ typedef evolutionary_algorithm
 , ancestors::random_bitstring
 , mutation::operators::per_site<mutation::site::bitflip>
 , recombination::two_point_crossover
-, generational_models::steady_state<selection::tournament< >, delayed_elitism<selection::random> >
+, generational_models::steady_state<selection::proportionate< >, delayed_elitism<selection::random> >
 > ea_type;
 
 /*! Define the EA's command-line interface.  Ealib provides an integrated command-line
@@ -73,6 +74,7 @@ public:
         add_option<NK_MODEL_K>(this);
         
         add_option<DELAY_GENERATIONS>(this);
+        add_option<DELAY_RANDOM_INSERT>(this);
     }
     
     //! Define events (e.g., datafiles) here.
@@ -82,6 +84,7 @@ public:
         add_event<lod_event>(ea);
         add_event<effective_fitness>(ea);
         add_event<dominant_archive>(ea);
+        add_event<random_individuals>(ea);
     };
     
     virtual void gather_tools() {
