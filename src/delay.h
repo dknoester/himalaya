@@ -20,12 +20,70 @@
 #ifndef _DELAY_H_
 #define _DELAY_H_
 
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics/stats.hpp>
+#include <boost/accumulators/statistics/mean.hpp>
+
 #include <ea/meta_data.h>
+#include <ea/selection/elitism.h>
+
+using namespace ealib;
 
 LIBEA_MD_DECL(DELAY_GENERATIONS, "delay.generations", int);
 LIBEA_MD_DECL(DELAY_W_REAL, "delay.w_real", double);
 LIBEA_MD_DECL(DELAY_W_EFF, "delay.w_eff", double);
 LIBEA_MD_DECL(DELAY_RANDOM_INSERT, "delay.random_insert", double);
+
+template <typename EA>
+typename EA::individual_ptr_type lod_parent(typename EA::individual_type& ind, EA& ea) {
+    if((get<IND_GENERATION>(ind) <= 0) || (!ind.traits().has_parents())) {
+        return typename EA::individual_ptr_type();
+    }
+    
+    return ind.traits().lod_parent();
+}
+
+/*! Delay the fitness of an individual based on the mean fitness along its
+ lineage.
+ */
+template <typename FitnessFunction>
+struct mean_delay : public FitnessFunction {
+    typedef FitnessFunction parent;
+
+    //! Common mean delay method.
+    template <typename Individual, typename EA>
+    double delay(Individual& ind, EA& ea) {
+        using namespace boost::accumulators;
+        
+        accumulator_set<double, stats<tag::mean> > w;
+        w(get<DELAY_W_REAL>(ind));
+        
+        typename EA::individual_ptr_type p=lod_parent(ind,ea);
+        for(int n=0; (n<get<DELAY_GENERATIONS>(ea)) && (p!=0); ++n) {
+            w(get<DELAY_W_REAL>(*p));
+            p = lod_parent(*p,ea);
+        }
+        
+        double w1 = mean(w);
+        put<DELAY_W_EFF>(w1,ind);
+        return w1;
+
+    }
+    
+    //! Mean delay a stochastic fitness function.
+    template <typename Individual, typename RNG, typename EA>
+    double operator()(Individual& ind, RNG& rng, EA& ea) {
+        put<DELAY_W_REAL>(static_cast<double>(parent::operator()(ind,rng,ea)), ind);
+        return delay(ind,ea);
+    }
+
+    //! Mean delay a constant fitness function.
+    template <typename Individual, typename EA>
+    double operator()(Individual& ind, EA& ea) {
+        put<DELAY_W_REAL>(static_cast<double>(parent::operator()(ind,ea)), ind);
+        return delay(ind,ea);
+    }
+};
 
 /*! Delay the fitness of an indivdual by up to DELAY_GENERATIONS number of
  ancestors along its lineage.

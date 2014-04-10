@@ -3,6 +3,11 @@ local HOME = [ os.environ HOME ] ;
 
 use-project /libea : ../ealib/libea ;
 
+alias himalaya :
+    /libea//libea
+    : : : <include>./src
+    ;
+
 exe himalaya-alps-bench :
     src/alps_bench.cpp
     /libea//libea
