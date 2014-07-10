@@ -2,7 +2,7 @@
  *
  * This file is part of EALib.
  *
- * Copyright 2012 David B. Knoester.
+ * Copyright 2014 David B. Knoester.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,29 +32,29 @@
 //}
 //// LIBEA_ANALYSIS_TOOL(sample_landscape, "sample the fitness landscape")
 
-
-template <typename EA>
-struct landscape_data : public ealib::analysis::unary_function<EA> {
-    static const char* name() { return "landscape_data";}
-    
-    virtual void operator()(EA& ea) {
-        using namespace ealib;
-        using namespace ealib::analysis;
-        
-        datafile df("landscape_data.dat");
-        df.add_field("fitness");
-        
-        for(int i=0; i<get<REPRESENTATION_SIZE>(ea); ++i) {
-            df.add_field("site" + boost::lexical_cast<std::string>(i));
-        }
-        
-        ea.clear();
-        lifecycle::prepare_new(ea);
-        
-        for(typename EA::iterator i=ea.begin(); i!=ea.end(); ++i) {
-            df.write(static_cast<double>(ealib::fitness(*i,ea))).write_all(i->repr().begin(), i->repr().end()).endl();
-        }
-    }
-};
+//
+//template <typename EA>
+//struct landscape_data : public ealib::analysis::unary_function<EA> {
+//    static const char* name() { return "landscape_data";}
+//    
+//    virtual void operator()(EA& ea) {
+//        using namespace ealib;
+//        using namespace ealib::analysis;
+//        
+//        datafile df("landscape_data.dat");
+//        df.add_field("fitness");
+//        
+//        for(int i=0; i<get<REPRESENTATION_SIZE>(ea); ++i) {
+//            df.add_field("site" + boost::lexical_cast<std::string>(i));
+//        }
+//        
+//        ea.clear();
+//        lifecycle::prepare_new(ea);
+//        
+//        for(typename EA::iterator i=ea.begin(); i!=ea.end(); ++i) {
+//            df.write(static_cast<double>(ealib::fitness(*i,ea))).write_all(i->repr().begin(), i->repr().end()).endl();
+//        }
+//    }
+//};
 
 #endif

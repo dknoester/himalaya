@@ -7,37 +7,37 @@
 		<key>all.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>36</integer>
 		</dict>
 		<key>himalaya-alps-bench.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>39</integer>
 		</dict>
 		<key>himalaya-alps-nk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>40</integer>
 		</dict>
 		<key>himalaya-delay-bench.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>41</integer>
 		</dict>
 		<key>himalaya-delay-nk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>31</integer>
 		</dict>
 		<key>himalaya-qhfc-bench.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>37</integer>
 		</dict>
 		<key>himalaya-qhfc-nk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>38</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

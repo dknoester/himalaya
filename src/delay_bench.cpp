@@ -2,7 +2,7 @@
  *
  * This file is part of the Himalaya project.
  *
- * Copyright 2012 David B. Knoester.
+ * Copyright 2014 David B. Knoester.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <ea/evolutionary_algorithm.h>
-#include <ea/representations/realstring.h>
+#include <ea/genome_types/realstring.h>
 #include <ea/fitness_functions/benchmarks.h>
 #include <ea/generational_models/steady_state.h>
 #include <ea/selection/tournament.h>
@@ -34,12 +34,18 @@ using namespace ealib;
 #include "analysis.h"
 
 typedef evolutionary_algorithm
-< individual<realstring, generation_delay<benchmarks>, realstring, directS, default_lod_traits>
-, ancestors::uniform_real
+< direct<realstring>
+, generation_delay<benchmarks>
 , mutation::operators::per_site<mutation::site::uniform_real>
 , recombination::two_point_crossover
-, generational_models::steady_state<selection::tournament< >, selection::elitism<selection::random> >
+, generational_models::steady_state<selection::tournament< >, selection::elitism<selection::random< > > >
+, ancestors::uniform_real
+, dont_stop
+, fill_population
+, default_lifecycle
+, lod_trait
 > ea_type;
+
 
 /*! Define the EA's command-line interface.  Ealib provides an integrated command-line
  and configuration file parser.  This class specializes that parser for this EA.
@@ -76,7 +82,7 @@ public:
     
     //! Define events (e.g., datafiles) here.
     virtual void gather_events(EA& ea) {
-        add_event<datafiles::fitness>(ea);
+        add_event<datafiles::fitness_dat>(ea);
         add_event<datafiles::fitness_evaluations>(ea);
         add_event<lod_event>(ea);
         add_event<effective_fitness>(ea);

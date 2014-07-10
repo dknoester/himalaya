@@ -2,7 +2,7 @@
  *
  * This file is part of EALib.
  *
- * Copyright 2012 David B. Knoester.
+ * Copyright 2014 David B. Knoester.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <ea/qhfc.h>
-#include <ea/representations/realstring.h>
+#include <ea/genome_types/realstring.h>
 #include <ea/fitness_functions/all_ones.h>
 #include <ea/cmdline_interface.h>
 #include <ea/mutation.h>
@@ -27,23 +27,20 @@
 #include <ea/datafiles/evaluations.h>
 #include <ea/datafiles/fitness.h>
 #include <ea/datafiles/population_entropy.h>
-#include <ea/representations/realstring.h>
+#include <ea/genome_types/realstring.h>
 #include <ea/cmdline_interface.h>
 #include <ea/algorithm.h>
 #include <ea/metapopulation.h>
 #include <ea/fitness_functions/benchmarks.h>
 #include <ea/qhfc.h>
-
-
 using namespace ealib;
 
-
-//! QHFC evolutionary algorithm type:
 typedef qhfc
-< individual<realstring,benchmarks>
-, ancestors::uniform_real
+< direct<realstring>
+, benchmarks
 , mutation::operators::per_site<mutation::site::uniform_real>
 , recombination::two_point_crossover
+, ancestors::uniform_real
 > ea_type;
 
 
@@ -55,7 +52,7 @@ public:
     virtual void gather_options() {
         add_option<POPULATION_SIZE>(this);
         add_option<REPRESENTATION_SIZE>(this);
-        add_option<META_POPULATION_SIZE>(this);
+        add_option<METAPOPULATION_SIZE>(this);
         add_option<MUTATION_PER_SITE_P>(this);
         add_option<MUTATION_UNIFORM_REAL_MIN>(this);
         add_option<MUTATION_UNIFORM_REAL_MAX>(this);

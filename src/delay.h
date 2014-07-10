@@ -2,7 +2,7 @@
  *
  * This file is part of the Himalaya project.
  *
- * Copyright 2012 David B. Knoester.
+ * Copyright 2014 David B. Knoester.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 #include <boost/accumulators/statistics/stats.hpp>
 #include <boost/accumulators/statistics/mean.hpp>
 
-#include <ea/meta_data.h>
+#include <ea/metadata.h>
 #include <ea/selection/elitism.h>
 
 using namespace ealib;
@@ -182,7 +182,7 @@ struct delayed_elitism {
         // now, append the e most-fit individuals:
         if(e > 0) {
             calculate_fitness(src.begin(), src.end(), ea);
-            std::sort(src.begin(), src.end(), comparators::meta_data<DELAY_W_REAL,EA>());
+            std::sort(src.begin(), src.end(), comparators::metadata<DELAY_W_REAL,EA>());
             typename Population::reverse_iterator rl=src.rbegin();
             std::advance(rl, e);
             dst.insert(dst.end(), src.rbegin(), rl);

@@ -13,10 +13,10 @@
 			buildPhases = (
 			);
 			dependencies = (
+				42ABB4EB196F002700185085 /* PBXTargetDependency */,
+				42ABB4ED196F002700185085 /* PBXTargetDependency */,
 				4234C448178CEDFA0078BD85 /* PBXTargetDependency */,
-				4234C44A178CEDFA0078BD85 /* PBXTargetDependency */,
 				4234C403178C316A0078BD85 /* PBXTargetDependency */,
-				4234C405178C316A0078BD85 /* PBXTargetDependency */,
 			);
 			name = all;
 			productName = all;
@@ -25,13 +25,9 @@
 
 /* Begin PBXBuildFile section */
 		3E7708E016F73710005F9459 /* qhfc_bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4220F36915D3510F005750F1 /* qhfc_bench.cpp */; };
-		3EB67EF516F8823C00111A41 /* alps_bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EB67EE916F8803700111A41 /* alps_bench.cpp */; };
 		4234C444178CED690078BD85 /* qhfc_nk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4234C443178CED360078BD85 /* qhfc_nk.cpp */; };
-		4234C445178CED720078BD85 /* alps_nk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4234C441178CED360078BD85 /* alps_nk.cpp */; };
 		4234C44F178CF0FB0078BD85 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
 		4234C450178CF10B0078BD85 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
-		4234C452178CF1100078BD85 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
-		4234C454178CF1130078BD85 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
 		4275212F187C82E9005C44E5 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
 		42752139187C8583005C44E5 /* delay_bench.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 42752138187C8583005C44E5 /* delay_bench.cpp */; };
 		42752140187C8606005C44E5 /* libea.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4234C44E178CF0FB0078BD85 /* libea.a */; };
@@ -46,13 +42,6 @@
 			remoteGlobalIDString = 3E7708D616F73701005F9459;
 			remoteInfo = hfc;
 		};
-		4234C404178C316A0078BD85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42A5ABA114C1250A00536B7F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3EB67EEB16F8821D00111A41;
-			remoteInfo = alps;
-		};
 		4234C447178CEDFA0078BD85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 42A5ABA114C1250A00536B7F /* Project object */;
@@ -60,12 +49,19 @@
 			remoteGlobalIDString = 4234C423178CEC890078BD85;
 			remoteInfo = "himalaya-qhfc-nk";
 		};
-		4234C449178CEDFA0078BD85 /* PBXContainerItemProxy */ = {
+		42ABB4EA196F002700185085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 42A5ABA114C1250A00536B7F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4234C42D178CEC990078BD85;
-			remoteInfo = "himalaya-alps-nk";
+			remoteGlobalIDString = 4275212B187C82E9005C44E5;
+			remoteInfo = "himalaya-delay-bench";
+		};
+		42ABB4EC196F002700185085 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42A5ABA114C1250A00536B7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4275213C187C8606005C44E5;
+			remoteInfo = "himalaya-delay-nk";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -79,25 +75,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		3EB67EF016F8821D00111A41 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		4234C428178CEC890078BD85 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		4234C432178CEC990078BD85 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -128,14 +106,10 @@
 
 /* Begin PBXFileReference section */
 		3E7708D716F73701005F9459 /* himalaya-qhfc-bench */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-qhfc-bench"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EB67EE916F8803700111A41 /* alps_bench.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alps_bench.cpp; sourceTree = "<group>"; };
-		3EB67EF416F8821D00111A41 /* himalaya-alps-bench */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-alps-bench"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4220F36915D3510F005750F1 /* qhfc_bench.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = qhfc_bench.cpp; sourceTree = "<group>"; };
 		4220F37015D49FE8005750F1 /* qhfc.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = qhfc.cfg; sourceTree = "<group>"; };
 		4234C419178C3E2A0078BD85 /* delay.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = delay.cfg; sourceTree = "<group>"; };
 		4234C42C178CEC890078BD85 /* himalaya-qhfc-nk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-qhfc-nk"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4234C436178CEC990078BD85 /* himalaya-alps-nk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "himalaya-alps-nk"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4234C441178CED360078BD85 /* alps_nk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alps_nk.cpp; sourceTree = "<group>"; };
 		4234C443178CED360078BD85 /* qhfc_nk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = qhfc_nk.cpp; sourceTree = "<group>"; };
 		4234C44E178CF0FB0078BD85 /* libea.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libea.a; path = ../DerivedData/research/Build/Products/Debug/libea.a; sourceTree = "<group>"; };
 		4259F68F17A2B56100132687 /* analysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = analysis.h; sourceTree = "<group>"; };
@@ -158,27 +132,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EB67EEE16F8821D00111A41 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4234C452178CF1100078BD85 /* libea.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4234C426178CEC890078BD85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4234C450178CF10B0078BD85 /* libea.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4234C430178CEC990078BD85 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4234C454178CF1130078BD85 /* libea.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,8 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				4259F68F17A2B56100132687 /* analysis.h */,
-				3EB67EE916F8803700111A41 /* alps_bench.cpp */,
-				4234C441178CED360078BD85 /* alps_nk.cpp */,
 				42752146187C86A6005C44E5 /* delay.h */,
 				42752138187C8583005C44E5 /* delay_bench.cpp */,
 				42ECA73D187D983700CD34D4 /* delay_nk.cpp */,
@@ -250,9 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7708D716F73701005F9459 /* himalaya-qhfc-bench */,
-				3EB67EF416F8821D00111A41 /* himalaya-alps-bench */,
 				4234C42C178CEC890078BD85 /* himalaya-qhfc-nk */,
-				4234C436178CEC990078BD85 /* himalaya-alps-nk */,
 				42752134187C82E9005C44E5 /* himalaya-delay-bench */,
 				42752145187C8606005C44E5 /* himalaya-delay-nk */,
 			);
@@ -279,23 +233,6 @@
 			productReference = 3E7708D716F73701005F9459 /* himalaya-qhfc-bench */;
 			productType = "com.apple.product-type.tool";
 		};
-		3EB67EEB16F8821D00111A41 /* himalaya-alps-bench */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3EB67EF116F8821D00111A41 /* Build configuration list for PBXNativeTarget "himalaya-alps-bench" */;
-			buildPhases = (
-				3EB67EEC16F8821D00111A41 /* Sources */,
-				3EB67EEE16F8821D00111A41 /* Frameworks */,
-				3EB67EF016F8821D00111A41 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "himalaya-alps-bench";
-			productName = hfc;
-			productReference = 3EB67EF416F8821D00111A41 /* himalaya-alps-bench */;
-			productType = "com.apple.product-type.tool";
-		};
 		4234C423178CEC890078BD85 /* himalaya-qhfc-nk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4234C429178CEC890078BD85 /* Build configuration list for PBXNativeTarget "himalaya-qhfc-nk" */;
@@ -311,23 +248,6 @@
 			name = "himalaya-qhfc-nk";
 			productName = hfc;
 			productReference = 4234C42C178CEC890078BD85 /* himalaya-qhfc-nk */;
-			productType = "com.apple.product-type.tool";
-		};
-		4234C42D178CEC990078BD85 /* himalaya-alps-nk */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4234C433178CEC990078BD85 /* Build configuration list for PBXNativeTarget "himalaya-alps-nk" */;
-			buildPhases = (
-				4234C42E178CEC990078BD85 /* Sources */,
-				4234C430178CEC990078BD85 /* Frameworks */,
-				4234C432178CEC990078BD85 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "himalaya-alps-nk";
-			productName = hfc;
-			productReference = 4234C436178CEC990078BD85 /* himalaya-alps-nk */;
 			productType = "com.apple.product-type.tool";
 		};
 		4275212B187C82E9005C44E5 /* himalaya-delay-bench */ = {
@@ -388,8 +308,6 @@
 				4292B3E316252344007F1B2C /* all */,
 				3E7708D616F73701005F9459 /* himalaya-qhfc-bench */,
 				4234C423178CEC890078BD85 /* himalaya-qhfc-nk */,
-				3EB67EEB16F8821D00111A41 /* himalaya-alps-bench */,
-				4234C42D178CEC990078BD85 /* himalaya-alps-nk */,
 				4275212B187C82E9005C44E5 /* himalaya-delay-bench */,
 				4275213C187C8606005C44E5 /* himalaya-delay-nk */,
 			);
@@ -405,27 +323,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EB67EEC16F8821D00111A41 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3EB67EF516F8823C00111A41 /* alps_bench.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4234C424178CEC890078BD85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4234C444178CED690078BD85 /* qhfc_nk.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4234C42E178CEC990078BD85 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4234C445178CED720078BD85 /* alps_nk.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,20 +355,20 @@
 			target = 3E7708D616F73701005F9459 /* himalaya-qhfc-bench */;
 			targetProxy = 4234C402178C316A0078BD85 /* PBXContainerItemProxy */;
 		};
-		4234C405178C316A0078BD85 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3EB67EEB16F8821D00111A41 /* himalaya-alps-bench */;
-			targetProxy = 4234C404178C316A0078BD85 /* PBXContainerItemProxy */;
-		};
 		4234C448178CEDFA0078BD85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4234C423178CEC890078BD85 /* himalaya-qhfc-nk */;
 			targetProxy = 4234C447178CEDFA0078BD85 /* PBXContainerItemProxy */;
 		};
-		4234C44A178CEDFA0078BD85 /* PBXTargetDependency */ = {
+		42ABB4EB196F002700185085 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4234C42D178CEC990078BD85 /* himalaya-alps-nk */;
-			targetProxy = 4234C449178CEDFA0078BD85 /* PBXContainerItemProxy */;
+			target = 4275212B187C82E9005C44E5 /* himalaya-delay-bench */;
+			targetProxy = 42ABB4EA196F002700185085 /* PBXContainerItemProxy */;
+		};
+		42ABB4ED196F002700185085 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4275213C187C8606005C44E5 /* himalaya-delay-nk */;
+			targetProxy = 42ABB4EC196F002700185085 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,18 +385,6 @@
 			};
 			name = Release;
 		};
-		3EB67EF216F8821D00111A41 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		3EB67EF316F8821D00111A41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		4234C42A178CEC890078BD85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -502,18 +392,6 @@
 			name = Debug;
 		};
 		4234C42B178CEC890078BD85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		4234C434178CEC990078BD85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		4234C435178CEC990078BD85 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -585,29 +463,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EB67EF116F8821D00111A41 /* Build configuration list for PBXNativeTarget "himalaya-alps-bench" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3EB67EF216F8821D00111A41 /* Debug */,
-				3EB67EF316F8821D00111A41 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4234C429178CEC890078BD85 /* Build configuration list for PBXNativeTarget "himalaya-qhfc-nk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4234C42A178CEC890078BD85 /* Debug */,
 				4234C42B178CEC890078BD85 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4234C433178CEC990078BD85 /* Build configuration list for PBXNativeTarget "himalaya-alps-nk" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4234C434178CEC990078BD85 /* Debug */,
-				4234C435178CEC990078BD85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

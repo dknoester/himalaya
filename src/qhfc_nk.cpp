@@ -1,5 +1,5 @@
 #include <ea/qhfc.h>
-#include <ea/representations/bitstring.h>
+#include <ea/genome_types/bitstring.h>
 #include <ea/fitness_functions/nk_model.h>
 #include <ea/datafiles/evaluations.h>
 #include <ea/datafiles/metapopulation_fitness.h>
@@ -7,10 +7,11 @@
 using namespace ealib;
 
 typedef qhfc
-< individual<bitstring,nk_model< > >
-, ancestors::random_bitstring
+< direct<bitstring>
+, nk_model< >
 , mutation::operators::per_site<mutation::site::bitflip>
 , recombination::two_point_crossover
+, ancestors::random_bitstring
 > ea_type;
 
 
@@ -21,7 +22,7 @@ class cli : public cmdline_interface<EA> {
 public:
     virtual void gather_options() {
         // ea options
-        add_option<META_POPULATION_SIZE>(this);
+        add_option<METAPOPULATION_SIZE>(this);
         add_option<REPRESENTATION_SIZE>(this);
         
         add_option<POPULATION_SIZE>(this);
@@ -55,7 +56,7 @@ public:
     }
     
     virtual void gather_events(EA& ea) {
-        add_event<datafiles::qhfc>(ea);
+        add_event<datafiles::qhfc_dat>(ea);
 //        add_event<datafiles::meta_population_fitness>(ea);
 //        add_event<datafiles::meta_population_fitness_evaluations>(ea);
     };
