@@ -34,6 +34,32 @@ LIBEA_MD_DECL(DELAY_W_REAL, "delay.w_real", double);
 LIBEA_MD_DECL(DELAY_W_EFF, "delay.w_eff", double);
 LIBEA_MD_DECL(DELAY_RANDOM_INSERT, "delay.random_insert", double);
 
+
+
+namespace access {
+    struct delayed_priority {
+        template <typename EA>
+        double operator()(typename EA::individual_type& ind, EA& ea) {
+            typedef typename EA::individual_ptr_type individual_ptr_type;
+            
+            double w = ind.priority();
+            put<DELAY_W_REAL>(w, ind);
+            
+            if(get<IND_GENERATION>(ind) > 0) {
+                individual_ptr_type p=ind.traits().lod_parent();
+                for(int i=1; (i<=get<DELAY_GENERATIONS>(ea)) && (get<IND_GENERATION>(*p) >= 0); ++i) {
+                    w = get<DELAY_W_REAL>(*p);
+                    p = p->traits().lod_parent();
+                }
+            }
+            
+            put<DELAY_W_EFF>(w, ind);
+            return w;
+        }
+    };
+    
+}
+
 template <typename EA>
 typename EA::individual_ptr_type lod_parent(typename EA::individual_type& ind, EA& ea) {
     if((get<IND_GENERATION>(ind) <= 0) || (!ind.traits().has_parents())) {
